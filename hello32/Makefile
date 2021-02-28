@@ -1,8 +1,8 @@
 %.o: %.s
-	nasm -f elf64 $< -l $*.lst
+	nasm -f elf32 $< -l $*.lst
 
 hello32: hello32.o
-	ld -o $@ $<
+	ld -m elf_i386 -o $@ $<
 	./$@
 	
 clean:
